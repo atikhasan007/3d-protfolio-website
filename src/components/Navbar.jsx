@@ -3,6 +3,7 @@ import styled, { useTheme } from 'styled-components'
 import { Link as LinkR } from 'react-router-dom';
 import { Bio } from '../data/constants';
 import {  MenuRounded } from '@mui/icons-material';
+import Logo from '../images/logo.png';
 
 
 const Nav = styled.div`
@@ -145,6 +146,17 @@ const MobileMenu = styled.ul`
 `;
 
 
+const Img = styled.img`
+width:40px;
+height:40px;
+background-color: ${({ theme }) => theme.bg};
+border-radius: 50%;
+display:flex;
+algin-items:center;
+justify-content:center;
+
+`;
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const theme = useTheme();
@@ -164,7 +176,7 @@ const Navbar = () => {
   return (
     <Nav>
       <NavbarContainer>
-      <NavLogo to='/'>geeksForGeeks</NavLogo>
+      <NavLogo to='/'><Img src={Logo}/></NavLogo>
       
       <MobileIcon onClick={() => setIsOpen(!isOpen)}>
         <MenuRounded  style={{
