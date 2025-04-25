@@ -10,7 +10,10 @@ const HeroContainer = styled.div`
   display: flex;
   justify-content: center;
   position: relative;
-  padding: 80px 30px;
+  padding: 0 30px;
+  padding-bottom:80px;
+  padding-top:40px;
+  
   z-index: 1;
   overflow-x: hidden; /* Changed from overflow-x: hidden to overflow: hidden */
 
@@ -30,7 +33,8 @@ const HeroInnerContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: 1100px;
+  gap:20px;
+  max-width: 800px;
 
   @media (max-width: 960px) {
     flex-direction: column;
@@ -49,7 +53,8 @@ const HeroLeftContainer = styled.div`
   }
 `;
 const HeroRightContainer = styled.div`
-  width: 100%;
+  width: 80%;
+  height:80%;
   order: 2;
   display: flex;
   justify-content: end;
@@ -69,36 +74,36 @@ const HeroRightContainer = styled.div`
 
 const Title = styled.div`
   font-weight: 700;
-  font-size: 50px;
+  font-size: 25px;
   color: ${({ theme }) => theme.text_primary};
-  line-height: 68px;
+  line-height: 30px;
 
   @media (max-width: 960px) {
     text-align: center;
   }
 
   @media (max-width: 960px) {
-    font-size: 40px;
-    line-height: 48px;
-    margin-bottom: 8px;
+    font-size: 25px;
+    line-height: 30px;
+    margin-bottom: 1px;
   }
 `;
 
 const TextLoop = styled.div`
   font-weight: 600;
-  font-size: 32px;
+  font-size: 20px;
   display: flex;
-  gap: 12px;
+  gap: 8px;
   color: ${({ theme }) => theme.text_primary};
-  line-height: 68px;
+  line-height: 30px;
 
   @media (max-width: 960px) {
     text-align: center;
   }
 
   @media (max-width: 960px) {
-    font-size: 22px;
-    line-height: 48px;
+    font-size: 20px;
+    line-height: 40px;
     margin-bottom: 16px;
   }
 `;
@@ -109,8 +114,8 @@ const Span = styled.div`
 `;
 
 const SubTitle = styled.div`
-  font-size: 20px;
-  line-height: 32px;
+  font-size: 15px;
+  line-height: 25px;
   margin-bottom: 42px;
   color: ${({ theme }) => theme.text_primary + 95};
 
@@ -119,8 +124,8 @@ const SubTitle = styled.div`
   }
 
   @media (max-width: 960px) {
-    font-size: 16px;
-    line-height: 32px;
+    font-size: 15px;
+    line-height: 25px;
   }
 `;
 
@@ -130,10 +135,10 @@ const ResumeButton = styled.a`
   appearance: button;
   text-decoration: none;
 
-  width: 95%;
+  width: 55%;
   max-width: 300px;
   text-align: center;
-  padding: 16px 0;
+  padding: 10px 0;
 
   background: hsla(271, 100%, 50%, 1);
   background: linear-gradient(
@@ -165,7 +170,7 @@ const ResumeButton = styled.a`
     
     
     @media (max-width: 640px) {
-        padding: 12px 0;
+        padding: 10px 0;
         font-size: 18px;
     } 
     color: white;
@@ -173,16 +178,36 @@ const ResumeButton = styled.a`
 
 const Img = styled.img`
   border-radius: 50%;
-  width: 100%;
-  height: 100%;
+  width: 80%;
+  height:auto;
   max-width: 400px;
   max-height: 400px;
   border: 2px solid ${({ theme }) => theme.primary};
-
-  @media (max-width: 640px) {
+   @media (max-width: 960px) {
+  
     max-width: 280px;
     max-height: 280px;
   }
+
+
+   @media (max-width: 760px) {
+  
+    max-width: 200px;
+    max-height: 200px;
+  }
+    @media (max-width: 640px) {
+  
+    max-width: 190px;
+    max-height: 190px;
+  }
+
+
+  @media (max-width: 540px) {
+  
+    max-width: 150px;
+    max-height: 150px;
+  }
+ 
 `;
 
 const HeroBg = styled.div`
