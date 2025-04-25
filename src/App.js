@@ -10,7 +10,9 @@ const Body = styled.div`
   color: ${({ theme }) => theme.text_primary};
   width: 100%;
 
-  overflow-x: hidden;
+ overflow-x: hidden;
+overflow-y: visible;
+
   position: relative;
 `;
 

@@ -4,19 +4,22 @@ import { Bio } from '../../data/constants';
 import Typewriter from 'typewriter-effect'
 import HeroImg from '../../images/myPic.jpg'
 import HeroBgAnimation from '../HeroBgAnimation';
-
+import {Tilt} from 'react-tilt';
+import {motion} from 'framer-motion'
+import { headContainerAnimation, headContentAnimation, headTextAnimation} from '../../utils/motion'
 
 const HeroContainer = styled.div`
+   
   display: flex;
   justify-content: center;
+  
   position: relative;
   padding: 0 30px;
   padding-bottom:80px;
   padding-top:40px;
   
   z-index: 1;
-  overflow-x: hidden; /* Changed from overflow-x: hidden to overflow: hidden */
-
+ overflow:hidden;
   @media (max-width: 960px) {
     padding: 66px 16px;
   }
@@ -33,9 +36,10 @@ const HeroInnerContainer = styled.div`
   justify-content: space-between;
   align-items: center;
   width: 100%;
+  
   gap:20px;
   max-width: 800px;
-
+  padding:4px 5px;
   @media (max-width: 960px) {
     flex-direction: column;
   }
@@ -43,6 +47,7 @@ const HeroInnerContainer = styled.div`
 const HeroLeftContainer = styled.div`
   width: 100%;
   order: 1;
+  overflow:hidden;
   @media (max-width: 960px) {
     order: 2;
     margin-bottom: 30px;
@@ -54,10 +59,13 @@ const HeroLeftContainer = styled.div`
 `;
 const HeroRightContainer = styled.div`
   width: 80%;
-  height:80%;
+  height: auto ;
   order: 2;
   display: flex;
-  justify-content: end;
+  justify-content: center;
+  align-items:center;
+  overflow:visible;
+
   @media (max-width: 960px) {
     order: 1;
     display: flex;
@@ -65,10 +73,12 @@ const HeroRightContainer = styled.div`
     align-items: center;
     justify-contents: center;
     margin-bottom: 80px;
+    margin-top:12px;
   }
 
   @media (max-width: 640px) {
     margin-bottom: 30px;
+    
   }
 `;
 
@@ -136,6 +146,7 @@ const ResumeButton = styled.a`
   text-decoration: none;
 
   width: 55%;
+  margin-left:1px;
   max-width: 300px;
   text-align: center;
   padding: 10px 0;
@@ -178,11 +189,14 @@ const ResumeButton = styled.a`
 
 const Img = styled.img`
   border-radius: 50%;
-  width: 80%;
-  height:auto;
+  width: 250px;
+  height:250px;
+  overflow:hidden;
+  
   max-width: 400px;
   max-height: 400px;
-  border: 2px solid ${({ theme }) => theme.primary};
+  border: 5px solid ${({ theme }) => theme.primary};
+  
    @media (max-width: 960px) {
   
     max-width: 280px;
@@ -222,7 +236,7 @@ const HeroBg = styled.div`
   left: 0;
  
   max-width: 1360px;
-  overflow: hidden;
+  overflow: visible;
   padding: 0 30px;
   top: 50%;
   left: 50%;
@@ -247,10 +261,12 @@ const Hero = () => {
        <HeroBg>
                <HeroBgAnimation/>
        </HeroBg>
-          
-          <HeroInnerContainer>
+
+       <motion.div {...headContainerAnimation} style={{overflow:'hidden'}}>
+       <HeroInnerContainer>
               <HeroLeftContainer>
-                     <Title>
+                <motion.div {...headTextAnimation}>
+                <Title>
                         Hi, I am <br/> {Bio.name}
                      </Title>
 
@@ -267,15 +283,31 @@ const Hero = () => {
                         </Span>
                      </TextLoop>
 
-                     <SubTitle>{Bio.description}</SubTitle>
+
+                </motion.div>
+                     
+
+                   <motion.div {...headContentAnimation}>
+                   <SubTitle>{Bio.description}</SubTitle>
+                   </motion.div>
+                     
                      <ResumeButton>Check Resume</ResumeButton>
 
               </HeroLeftContainer>
 
               <HeroRightContainer>
-                      <Img src={HeroImg} alt = "atik hasan"/>
+               <motion.div {...headContentAnimation}>
+               <Tilt style={{overflow:'visible'}}>
+                <Img src={HeroImg} alt = "atik hasan"/>
+                </Tilt>
+               </motion.div>
+                      
               </HeroRightContainer>
           </HeroInnerContainer>
+
+       </motion.div>
+          
+        
 
        </HeroContainer>
     </div>
